@@ -19,14 +19,6 @@ resource "yandex_storage_bucket" "nikiforov-roman-2025-07-31" {
   } 
 }
 
-resource "yandex_storage_object" "image" {
-  acl = "public-read"
-  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key 
-  bucket = yandex_storage_bucket.nikiforov-roman-2025-07-31.bucket
-  key    = "image.png"
-  source = "./Screenshot_1.png"
-}
 resource "yandex_storage_object" "index" {
   acl = "public-read"
   access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -35,6 +27,7 @@ resource "yandex_storage_object" "index" {
   key    = "index.html"
   source = "./index.html"
 }
+
 resource "yandex_storage_object" "error" {
   acl = "public-read"
   access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
